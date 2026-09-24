@@ -379,6 +379,11 @@ app.post('/api/simulate', (req: Request, res: Response) => {
   res.json({ success: true, activity: newLog, user });
 });
 
+// Health check endpoint for Render monitoring
+app.get('/health', (req: Request, res: Response) => {
+  res.status(200).send('OK');
+});
+
 // Setup Vite or static serving
 async function setupApp() {
   if (!isProd) {
@@ -391,6 +396,9 @@ async function setupApp() {
   } else {
     app.use(express.static(path.resolve(__dirname, 'dist')));
     app.get('*', (req: Request, res: Response) => {
+      if (req.path.startsWith('/api/')) {
+        return res.status(404).json({ error: 'API endpoint not found' });
+      }
       res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
     });
   }
