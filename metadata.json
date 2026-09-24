@@ -1,0 +1,6 @@
+{
+  "name": "Web Seeker Live - Student Bot Operations Center",
+  "description": "منصة المراقبة والإشعارات الحية فائقة السرعة لبوت الطلاب والنتائج الجامعية web_seeker_bot - إحصائيات فورية ثانية بثانية وواجهة إشعارات احترافية متكاملة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
